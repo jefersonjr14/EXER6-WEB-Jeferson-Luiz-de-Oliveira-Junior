@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+
+    <h1>Gerador de Lista</h1>
+    <input type="number" id="numero" placeholder="Digite um número">
+    <button id="botao">Gerar Lista</button>
+    
+    <div id="mensagem"></div>
+    <ol id="lista"></ol> 
+
+    <script>
+        document.getElementById('botao').onclick = function() {
+            const numero = parseInt(document.getElementById('numero').value);
+            const mensagemDiv = document.getElementById('mensagem');
+            const listaDiv = document.getElementById('lista');
+            listaDiv.innerHTML = ''; 
+            
+            if (isNaN(numero) || numero <= 0) {
+                mensagemDiv.textContent = 'Por Favor, insira um número válido.';
+            } else {
+                mensagemDiv.textContent = ''; 
+                for (let i = 1; i <= numero; i++) {
+                    const item = document.createElement('li');
+                    item.textContent = `Jeferson ${i}`; 
+                    listaDiv.appendChild(item);
+                }
+            }
+        };
+    </script>
+
+</body>
+</html>
